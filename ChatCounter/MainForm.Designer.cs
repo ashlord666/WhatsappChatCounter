@@ -49,6 +49,7 @@ namespace ChatCounter
             this.statusStrip1.Location = new System.Drawing.Point(0, 279);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(685, 22);
+            this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -140,6 +141,7 @@ namespace ChatCounter
             this.Controls.Add(this.endDateTimePicker);
             this.Controls.Add(this.startDateTimePicker);
             this.Controls.Add(this.statusStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChatCounter";
