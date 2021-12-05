@@ -66,20 +66,23 @@ namespace ChatCounter
                                     Match match = rgx.Match(line);
 
                                     DateTime dateValue;
-                                    // Check date
+
                                     // Parse date
                                     if (DateTime.TryParseExact(match.Groups[1].Value, "dd/MM/yyyy", cultureInfo, DateTimeStyles.None, out dateValue))
                                     {
+                                        // Check date
                                         if ((dateValue.Date > endDateTimePicker.Value.AddDays(1).Date) || (dateValue.Date < startDateTimePicker.Value.Date))
                                         {
                                             continue;
                                         }
+
+                                        // Increment count
+                                        talkative.TryGetValue(match.Groups[2].Value, out var currentCount);
+                                        talkative[match.Groups[2].Value] = currentCount + 1;
+                                        datematchedcount++;
                                     }
 
-                                    // Increment count
-                                    talkative.TryGetValue(match.Groups[2].Value, out var currentCount);
-                                    talkative[match.Groups[2].Value] = currentCount + 1;
-                                    datematchedcount++;
+                                    // Else, ignore the line since the date cannot be parsed. This should never happen though.
                                 }
 
                             }
