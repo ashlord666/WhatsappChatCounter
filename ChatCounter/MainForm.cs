@@ -92,7 +92,7 @@ namespace ChatCounter
                                 ordered.ToList().ForEach(x => tw.WriteLine($"{x.Key},{x.Value}"));
                             }
 
-                            statusMsg.Text = $"{datematchedcount} lines filtered from {matchedcount} message. Processed {totalcount} lines. {ordered.ToList().Count} chatters.";
+                            statusMsg.Text = $"{datematchedcount} lines filtered from {matchedcount} messages. Processed {totalcount} lines. {ordered.ToList().Count} chatters.";
 
                         }
                         else
