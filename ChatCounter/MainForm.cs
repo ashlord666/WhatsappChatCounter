@@ -36,7 +36,7 @@ namespace ChatCounter
             ChooseFileButton.Enabled = false;
             //statusMsg.Text = $"startDate: {startDateTimePicker.Value.ToShortDateString()}, endDate: {endDateTimePicker.Value.Date.ToShortDateString()}";
 
-            Regex rgx = new Regex(@"^(\d{2}/\d{2}/\d{4}),\s+\d{2}:\d{2}\s+-\s+([^:]+):.*$");
+            Regex rgx = new Regex(@"^(\d+/\d+/\d+),\s+\d{2}:\d{2}\s+[^-]+\s+-\s+([^:]+):.*$");
             int totalcount = 0;
             int matchedcount = 0;
             int datematchedcount = 0;
@@ -68,7 +68,7 @@ namespace ChatCounter
                                     DateTime dateValue;
 
                                     // Parse date
-                                    if (DateTime.TryParseExact(match.Groups[1].Value, "dd/MM/yyyy", cultureInfo, DateTimeStyles.None, out dateValue))
+                                    if (DateTime.TryParseExact(match.Groups[1].Value, "dd/MM/yy", cultureInfo, DateTimeStyles.None, out dateValue))
                                     {
                                         // Check date
                                         if ((dateValue.Date > endDateTimePicker.Value.AddDays(1).Date) || (dateValue.Date < startDateTimePicker.Value.Date))
