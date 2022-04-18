@@ -68,7 +68,7 @@ namespace ChatCounter
                                     DateTime dateValue;
 
                                     // Parse date
-                                    if (DateTime.TryParseExact(match.Groups[1].Value, "dd/MM/yy", cultureInfo, DateTimeStyles.None, out dateValue))
+                                    if (DateTime.TryParseExact(match.Groups[1].Value, "d/M/yy", cultureInfo, DateTimeStyles.None, out dateValue))
                                     {
                                         // Check date
                                         if ((dateValue.Date > endDateTimePicker.Value.AddDays(1).Date) || (dateValue.Date < startDateTimePicker.Value.Date))
